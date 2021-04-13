@@ -1,0 +1,44 @@
+
+{
+  data: {
+    company: {
+      name: 'Lucid'
+      industry: 'IT'
+      employees: [
+        {
+          title: 'SE',
+          project: 'Core',
+          profile:
+            {first_name, last_name, profile_id}
+          skills : ['java', 'python']
+        }
+      ]
+    }
+  }
+}
+
+
+
+insert into companies values ('62bb8e86-95d7-4374-b0a2-e76cab7a292b', 'Lucid LLC', 'IT', datetime('now'));
+insert into companies values ('62bb8e86-95d7-4374-b0a2-e76cab7a292c', 'Intel', 'Hardware', datetime('now'));
+
+insert into skills values('e658cbdf-a873-42f8-887c-f37586cf7dbf', 'Java', datetime('now'));
+insert into skills values('e658cbdf-a873-42f8-887c-f37586cf7dbg', 'Python', datetime('now'));
+insert into skills values('e658cbdf-a873-42f8-887c-f37586cf7dbh', 'JS', datetime('now'));
+
+
+insert into employees values ('4497e2ad-4486-4dbb-9614-ce67710f5018', 'SDE', 'Core', datetime('now'), '62bb8e86-95d7-4374-b0a2-e76cab7a292b');
+insert into employees values ('4497e2ad-4486-4dbb-9614-ce67710f5019', 'SDET', 'Core', datetime('now'), '62bb8e86-95d7-4374-b0a2-e76cab7a292b');
+insert into employees values ('4497e2ad-4486-4dbb-9614-ce67710f5020', 'SDET', 'Platform', datetime('now'), '62bb8e86-95d7-4374-b0a2-e76cab7a292b');
+insert into employees values ('4497e2ad-4486-4dbb-9614-ce67710f5021', 'SE', 'Engine', datetime('now'), '62bb8e86-95d7-4374-b0a2-e76cab7a292c');
+
+insert into profile values ('4702827c-8c96-4472-a129-c034ed8a4e2f', 'Sumit', 'Jain', '4497e2ad-4486-4dbb-9614-ce67710f5018', datetime('now'));
+insert into profile values ('4702827c-8c96-4472-a129-c034ed8a4e2g', 'Ryan', 'Sukale', '4497e2ad-4486-4dbb-9614-ce67710f5019', datetime('now'));
+insert into profile values ('4702827c-8c96-4472-a129-c034ed8a4e2h', 'Jhon', 'Dow', '4497e2ad-4486-4dbb-9614-ce67710f5020', datetime('now'));
+insert into profile values ('4702827c-8c96-4472-a129-c034ed8a4e2i', 'Carl', 'Dow', '4497e2ad-4486-4dbb-9614-ce67710f5021', datetime('now'));
+
+insert into employee_skills values ('482a2858-baac-4eff-af8e-c2a69dfd94b5', '4497e2ad-4486-4dbb-9614-ce67710f5018', 'e658cbdf-a873-42f8-887c-f37586cf7dbf', datetime('now'));
+insert into employee_skills values ('482a2858-baac-4eff-af8e-c2a69dfd94b6', '4497e2ad-4486-4dbb-9614-ce67710f5019', 'e658cbdf-a873-42f8-887c-f37586cf7dbf', datetime('now'));
+insert into employee_skills values ('482a2858-baac-4eff-af8e-c2a69dfd94b7', '4497e2ad-4486-4dbb-9614-ce67710f5019', 'e658cbdf-a873-42f8-887c-f37586cf7dbg', datetime('now'));
+insert into employee_skills values ('482a2858-baac-4eff-af8e-c2a69dfd94b8', '4497e2ad-4486-4dbb-9614-ce67710f5020', 'e658cbdf-a873-42f8-887c-f37586cf7dbg', datetime('now'));
+insert into employee_skills values ('482a2858-baac-4eff-af8e-c2a69dfd94b9', '4497e2ad-4486-4dbb-9614-ce67710f5021', 'e658cbdf-a873-42f8-887c-f37586cf7dbh', datetime('now'));
