@@ -1,16 +1,36 @@
-# This is a sample Python script.
+import os
+from company import company_app
+from company.extenstions import db
+from dotenv import load_dotenv, find_dotenv
+from flask_graphql import GraphQLView
+from company.schema import schema
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+load_dotenv(find_dotenv())
+company_app = company_app.create_app()
+
+port = os.environ.get('FLASK_RUN_PORT')
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+@company_app.before_first_request
+def create_tables():
+    db.create_all()
 
 
-# Press the green button in the gutter to run the script.
+company_app.add_url_rule(
+    '/graphql',
+    view_func=GraphQLView.as_view(
+        'graphql',
+        schema=schema,
+        graphiql=True  # for having the GraphiQL interface
+    )
+)
+
+# print(schema)
+
+company_app.add_url_rule('/graphql-query', view_func=GraphQLView.as_view(
+    'graphql-query',
+    schema=schema, graphiql=True
+))
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    company_app.run(host='0.0.0.0', port=port)
