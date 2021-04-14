@@ -4,79 +4,94 @@
 4. In separate terminal run 'sqlite3 db.sqlite3',  run all the queries from **_create_data.txt_** file.
 5. Nom from 'http://0.0.0.0:5001/graphql', make a call with body 
 ````{
-  conferences {
+  companies {
     name
-    year
-    conferenceTalks {
+    industry
+    employees{
       title
-      videoUrl
-      speakers {
+      project
+      profile {
         firstName
       }
+      skills{
+        skillName
+      }
     }
-     conferenceTags {
-       tagName
-     }
   }
 }
 ````
 You should output as below:
 ````{
   "data": {
-    "conferences": [
+    "companies": [
       {
-        "name": "conference_ference_one",
-        "year": "2020",
-        "conferenceTalks": [
+        "name": "Lucid LLC",
+        "industry": "IT",
+        "employees": [
           {
-            "title": "con_talk_1",
-            "videoUrl": "google.com",
-            "speakers": [
+            "title": "SDE",
+            "project": "Core",
+            "profile": [
               {
-                "firstName": "sumit"
+                "firstName": "Sumit"
+              }
+            ],
+            "skills": [
+              {
+                "skillName": "Java"
               }
             ]
           },
           {
-            "title": "con_talk_2",
-            "videoUrl": "aaa.com",
-            "speakers": []
+            "title": "SDET",
+            "project": "Core",
+            "profile": [
+              {
+                "firstName": "Ryan"
+              }
+            ],
+            "skills": [
+              {
+                "skillName": "Java"
+              },
+              {
+                "skillName": "Python"
+              }
+            ]
           },
           {
-            "title": "con_talk_3",
-            "videoUrl": "bbb.com",
-            "speakers": []
-          }
-        ],
-        "conferenceTags": [
-          {
-            "tagName": "python"
-          },
-          {
-            "tagName": "js"
-          },
-          {
-            "tagName": "java"
+            "title": "SDET",
+            "project": "Platform",
+            "profile": [
+              {
+                "firstName": "Jhon"
+              }
+            ],
+            "skills": [
+              {
+                "skillName": "Python"
+              }
+            ]
           }
         ]
       },
       {
-        "name": "conference_ference_teo",
-        "year": "2019",
-        "conferenceTalks": [
+        "name": "Intel",
+        "industry": "Hardware",
+        "employees": [
           {
-            "title": "con_talk_4",
-            "videoUrl": "ccc.com",
-            "speakers": [
+            "title": "SE",
+            "project": "Engine",
+            "profile": [
               {
-                "firstName": "ryan"
+                "firstName": "Carl"
+              }
+            ],
+            "skills": [
+              {
+                "skillName": "JS"
               }
             ]
-          }
-        ],
-        "conferenceTags": [
-          {
-            "tagName": "java"
           }
         ]
       }
